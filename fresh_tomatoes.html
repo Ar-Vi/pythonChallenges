@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Popular Movie Trailers!</title>
+
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <style type="text/css" media="screen">
+        body {
+            padding-top: 80px;
+        }
+        #trailer .modal-dialog {
+            margin-top: 200px;
+            width: 640px;
+            height: 480px;
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+        #trailer-video {
+            width: 100%;
+            height: 100%;
+        }
+        .movie-tile {
+            margin-bottom: 20px;
+            padding-top: 20px;
+        }
+        .movie-tile:hover {
+            background-color: #EEE;
+            cursor: pointer;
+        }
+        .scale-media {
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .scale-media iframe {
+            border: none;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: white;
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+        // Pause the video when the modal is closed
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
+            // Remove the src so the player itself gets removed, as this is the only
+            // reliable way to ensure the video stops playing in IE
+            $("#trailer-video-container").empty();
+        });
+        // Start playing the video whenever the trailer modal is opened
+        $(document).on('click', '.movie-title', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
+        // Animate in the movies when the page loads
+        $(document).ready(function () {
+          $('.movie-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
+          });
+        });
+    </script>
+</head>
+
+  <body>
+    <!-- Trailer Video Modal -->
+    <div class="modal" id="trailer">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Page Content -->
+    <div class="container">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Popular Movies Out Now!</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      
+<div class="col-md-6 col-lg-4 movie-title text-center"
+    data-trailer-youtube-id="sfM7_JLk-84" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg" width="220" height="342">
+</div>
+
+<div class="col-md-6 col-lg-4 movie-title text-center"
+    data-trailer-youtube-id="vntSSo0yuc4" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500/13B6onhL6FzSN2KaNeQeMML05pS.jpg" width="220" height="342">
+</div>
+
+<div class="col-md-6 col-lg-4 movie-title text-center"
+    data-trailer-youtube-id="4TojlZYqPUo" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500/hm58Jw4Lw8OIeECIq5qyPYhAeRJ.jpg" width="220" height="342">
+</div>
+
+<div class="col-md-6 col-lg-4 movie-title text-center"
+    data-trailer-youtube-id="GWIamU7vTKo" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500/vYvppZMvXYheYTWVd8Rnn9nsmNp.jpg" width="220" height="342">
+</div>
+
+<div class="col-md-6 col-lg-4 movie-title text-center"
+    data-trailer-youtube-id="_TLtcw7ixRc" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500/zeD4PabP6099gpE0STWJrJrCBCs.jpg" width="220" height="342">
+</div>
+
+<div class="col-md-6 col-lg-4 movie-title text-center"
+    data-trailer-youtube-id="GkXeVIfbJOw" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500/tK1zy5BsCt1J4OzoDicXmr0UTFH.jpg" width="220" height="342">
+</div>
+
+<div class="col-md-6 col-lg-4 movie-title text-center"
+    data-trailer-youtube-id="u4Tf7bLOErI" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500/2VrvxK4yxNCU6KVgo5TADJeBEQu.jpg" width="220" height="342">
+</div>
+
+<div class="col-md-6 col-lg-4 movie-title text-center"
+    data-trailer-youtube-id="9nlhmJF5FNI" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500/b1C0FuXp4wiPmHLVKq4kwtDMgK6.jpg" width="220" height="342">
+</div>
+
+<div class="col-md-6 col-lg-4 movie-title text-center"
+    data-trailer-youtube-id="oM-Nw9XzqVM" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500/7K4mdWaLGF2F4ASb2L12tlya9c9.jpg" width="220" height="342">
+</div>
+
+<div class="col-md-6 col-lg-4 movie-title text-center"
+    data-trailer-youtube-id="ATJYac_dORw" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500/yF45egpHwaYLn4jTyZAgk0Cmug9.jpg" width="220" height="342">
+</div>
+
+<div class="col-md-6 col-lg-4 movie-title text-center"
+    data-trailer-youtube-id="a0tinkp-jQU" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500/v6NodCMzqilx0Xw541P65WFnDfE.jpg" width="220" height="342">
+</div>
+
+<div class="col-md-6 col-lg-4 movie-title text-center"
+    data-trailer-youtube-id="c1P44Qr6gyI" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500/82yxvnYtgeRzsq5f9USlrFJI05s.jpg" width="220" height="342">
+</div>
+
+<div class="col-md-6 col-lg-4 movie-title text-center"
+    data-trailer-youtube-id="bu9e410C__I" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500/xrI4EnZWftpo1B7tTvlMUXVOikd.jpg" width="220" height="342">
+</div>
+
+<div class="col-md-6 col-lg-4 movie-title text-center"
+    data-trailer-youtube-id="09Ia7PGMGwk" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500/1UCOF11QCw8kcqvce8LKOO6pimh.jpg" width="220" height="342">
+</div>
+
+<div class="col-md-6 col-lg-4 movie-title text-center"
+    data-trailer-youtube-id="1HZAnkxdYuA" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500/ien08sCofi199G3fkPKNQcDi7jT.jpg" width="220" height="342">
+</div>
+
+<div class="col-md-6 col-lg-4 movie-title text-center"
+    data-trailer-youtube-id="UjN_FPK-7T0" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500/mI7sIBqIsCsTjLvuiVVTfvW3FLU.jpg" width="220" height="342">
+</div>
+
+<div class="col-md-6 col-lg-4 movie-title text-center"
+    data-trailer-youtube-id="EqPnIcDW9g0" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500/8xC6QSyxrpm0D5A6iyHNemEWBVe.jpg" width="220" height="342">
+</div>
+
+<div class="col-md-6 col-lg-4 movie-title text-center"
+    data-trailer-youtube-id="hCToNAb7QGU" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500/t7EUMSlfUN3jUSZUJOLURAzJzZs.jpg" width="220" height="342">
+</div>
+
+<div class="col-md-6 col-lg-4 movie-title text-center"
+    data-trailer-youtube-id="pJJw-0Mo6rA" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500/mVcKV76XSxxJCsqdxjMql7yVJq5.jpg" width="220" height="342">
+</div>
+
+<div class="col-md-6 col-lg-4 movie-title text-center"
+    data-trailer-youtube-id="NB3mZMyxcM0" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/w500/MBiKqTsouYqAACLYNDadsjhhC0.jpg" width="220" height="342">
+</div>
+
+    </div>
+  </body>
+</html>
